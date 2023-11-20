@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Recommendation</title>
+  </head>
+  <body>
+    <h1>Recommended Food</h1>
+    {% if bmr %}
+    <p>Your BMR: {{ bmr }}</p>
+    {% endif %} {% if recommended_food %}
+    <p>Your recommended food:</p>
+    <ul>
+      {% for meal, food in recommended_food.items() %}
+      <li><strong>{{ meal }}:</strong> {{ food }}</li>
+      {% endfor %}
+    </ul>
+    <p>Total Calories: {{ calories }}</p>
+    <p>Total Protein: {{ protein }}</p>
+    {% else %}
+    <p>Sorry, no recommendation available.</p>
+    {% endif %}
+  </body>
+</html>
